@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>"How to rename all files to lowercase" - azuer88</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+<link rel="canonical" href="https://azuer88.github.io/myblog/how-to-rename-all-files-to-lowercase.html">
+
+        <meta name="author" content="Blue Cuenca" />
+        <meta name="keywords" content="terminal,howto,rename" />
+        <meta name="description" content="Tip on renaming files to lowercase" />
+
+        <meta property="og:site_name" content="azuer88" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="&#34;How to rename all files to lowercase&#34;"/>
+        <meta property="og:url" content="https://azuer88.github.io/myblog/how-to-rename-all-files-to-lowercase.html"/>
+        <meta property="og:description" content="Tip on renaming files to lowercase"/>
+        <meta property="article:published_time" content="2016-10-12" />
+            <meta property="article:section" content="howto" />
+            <meta property="article:tag" content="terminal" />
+            <meta property="article:tag" content="howto" />
+            <meta property="article:tag" content="rename" />
+            <meta property="article:author" content="Blue Cuenca" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://azuer88.github.io/myblog/theme/css/bootstrap.min.css" type="text/css"/>
+    <link href="https://azuer88.github.io/myblog/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="https://azuer88.github.io/myblog/theme/css/pygments/native.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://azuer88.github.io/myblog/theme/css/style.css" type="text/css"/>
+
+        <link href="https://azuer88.github.io/myblog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="azuer88 ATOM Feed"/>
+
+
+
+        <link href="https://azuer88.github.io/myblog/feeds/howto.atom.xml" type="application/atom+xml" rel="alternate"
+              title="azuer88 howto ATOM Feed"/>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="https://azuer88.github.io/myblog/" class="navbar-brand">
+azuer88            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="https://azuer88.github.io/myblog/category/guide.html">Guide</a>
+                        </li>
+                        <li class="active">
+                            <a href="https://azuer88.github.io/myblog/category/howto.html">Howto</a>
+                        </li>
+                        <li >
+                            <a href="https://azuer88.github.io/myblog/category/misc.html">Misc</a>
+                        </li>
+                        <li >
+                            <a href="https://azuer88.github.io/myblog/category/rants.html">Rants</a>
+                        </li>
+                        <li >
+                            <a href="https://azuer88.github.io/myblog/category/status.html">Status</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="https://azuer88.github.io/myblog/how-to-rename-all-files-to-lowercase.html"
+                       rel="bookmark"
+                       title="Permalink to "How to rename all files to lowercase"">
+                        "How to rename all files to lowercase"
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-10-12T09:14:24+08:00"> Wed 12 October 2016</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="https://azuer88.github.io/myblog/tag/terminal.html">terminal</a>
+        /
+	<a href="https://azuer88.github.io/myblog/tag/howto.html">howto</a>
+        /
+	<a href="https://azuer88.github.io/myblog/tag/rename.html">rename</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>How do you rename all files in the current directory to all lowercase?</p>
+<p><code>ls | while read upName; do loName=`echo "${upName}" | tr '[:upper:]' '[:lower:]'`; mv "$upName" "$loName"; done</code></p>
+<p>I had to rename all the font files to lowercase.  I found this solution <a href="https://ubuntuforums.org/showthread.php?t=1336909">here</a></p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Social</span></h4>
+              <ul class="list-group" id="social">
+                <li class="list-group-item"><a href="#"><i class="fa fa-you-can-add-links-in-your-config-file-square fa-lg"></i> You can add links in your config file</a></li>
+                <li class="list-group-item"><a href="#"><i class="fa fa-another-social-link-square fa-lg"></i> Another social link</a></li>
+              </ul>
+            </li>
+
+
+
+
+
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://python.org/" target="_blank">
+                Python.org
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="http://jinja.pocoo.org/" target="_blank">
+                Jinja2
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="#" target="_blank">
+                You can modify those links in your config file
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 Blue Cuenca
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="https://azuer88.github.io/myblog/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="https://azuer88.github.io/myblog/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="https://azuer88.github.io/myblog/theme/js/respond.min.js"></script>
+
+
+</body>
+</html>
