@@ -1,10 +1,10 @@
-#!/usr/bin/env python
+#/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
 AUTHOR = u'Blue Cuenca'
 SITENAME = u'azuer88'
-SITEURL = ''
+SITEURL = 'https://azuer88.github.io/myblog'
 
 PATH = 'content'
 
