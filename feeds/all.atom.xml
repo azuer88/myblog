@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>azuer88</title><link href="https://azuer88.github.io/myblog/" rel="alternate"></link><link href="https://azuer88.github.io/myblog/feeds/all.atom.xml" rel="self"></link><id>https://azuer88.github.io/myblog/</id><updated>2017-02-16T14:19:07+08:00</updated><entry><title>Setup a Django Project with WebPack-ReactJS-NPM Front-End Framework Part 2</title><link href="https://azuer88.github.io/myblog/setup-a-django-project-with-webpack-reactjs-npm-frontend-framework-part-2.html" rel="alternate"></link><published>2017-02-16T14:19:07+08:00</published><updated>2017-02-16T14:19:07+08:00</updated><author><name>Blue Cuenca</name></author><id>tag:azuer88.github.io,2017-02-16:myblog/setup-a-django-project-with-webpack-reactjs-npm-frontend-framework-part-2.html</id><summary type="html">&lt;!-- start here --&gt;
+
+&lt;p&gt;In this post, we are going to continue with setting up the environment we created in &lt;a href="https://azuer88.github.io/myblog/setup-a-django-project-with-webpack-reactjs-npm-frontend-framework.html"&gt;this post&lt;/a&gt;&lt;/p&gt;</summary><category term="setup"></category><category term="howto"></category><category term="django"></category><category term="webpack"></category><category term="reactjs"></category><category term="npm"></category><category term="project"></category></entry><entry><title>Setup a django project with webpack+reactjs+npm frontend framework</title><link href="https://azuer88.github.io/myblog/setup-a-django-project-with-webpack-reactjs-npm-frontend-framework.html" rel="alternate"></link><published>2017-02-15T15:22:41+08:00</published><updated>2017-02-15T15:22:41+08:00</updated><author><name>Blue Cuenca</name></author><id>tag:azuer88.github.io,2017-02-15:myblog/setup-a-django-project-with-webpack-reactjs-npm-frontend-framework.html</id><summary type="html">&lt;!-- start here --&gt;
+
+&lt;h2&gt;Create project as usual...&lt;/h2&gt;
+&lt;p&gt;I usually start from &lt;a href="http://www.github.com"&gt;github&lt;/a&gt;, creating a repository, then clone that repository.&lt;/p&gt;
+&lt;p&gt;After creating and cloning, create the virtual environment (see &lt;a href="http://virtualenvwrapper.readthedocs.io/en/latest/install.html"&gt;virtualenvwrapper docs&lt;/a&gt;) for more info on installing and setting it up.&lt;/p&gt;
+&lt;h2&gt;Setup development tools&lt;/h2&gt;
+&lt;p&gt;Install NodeJS v6.x &lt;a href="http://askubuntu.com/a/635469/334127"&gt;see here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Install global npm modules:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;sudo npm install -g --upgrade npm 
+sudo npm install -g babel
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Insert the following into package.json, right after the &lt;code&gt;"homepage"&lt;/code&gt; key:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;  &amp;quot;devDependencies&amp;quot;: {
+    &amp;quot;babel-core&amp;quot;: &amp;quot;^6.9.1&amp;quot;,
+    &amp;quot;babel-loader&amp;quot;: &amp;quot;^6.2.4&amp;quot;,
+    &amp;quot;babel-preset-react&amp;quot;: &amp;quot;^6.5.0&amp;quot;,
+    &amp;quot;bootstrap&amp;quot;: &amp;quot;^3.3.6&amp;quot;,
+    &amp;quot;bootstrap-loader&amp;quot;: &amp;quot;^1.3.0&amp;quot;,
+    &amp;quot;bootstrap-sass&amp;quot;: &amp;quot;^3.3.7&amp;quot;,
+    &amp;quot;css-loader&amp;quot;: &amp;quot;^0.23.1&amp;quot;,
+    &amp;quot;extract-text-webpack-plugin&amp;quot;: &amp;quot;^1.0.1&amp;quot;,
+    &amp;quot;file-loader&amp;quot;: &amp;quot;^0.8.5&amp;quot;,
+    &amp;quot;less&amp;quot;: &amp;quot;^2.7.1&amp;quot;,
+    &amp;quot;less-loader&amp;quot;: &amp;quot;^2.2.3&amp;quot;,
+    &amp;quot;node-sass&amp;quot;: &amp;quot;^3.11.2&amp;quot;,
+    &amp;quot;postcss-loader&amp;quot;: &amp;quot;^0.9.1&amp;quot;,
+    &amp;quot;raw-loader&amp;quot;: &amp;quot;^0.5.1&amp;quot;,
+    &amp;quot;react&amp;quot;: &amp;quot;^15.1.0&amp;quot;,
+    &amp;quot;react-bootstrap&amp;quot;: &amp;quot;^0.29.4&amp;quot;,
+    &amp;quot;react-dom&amp;quot;: &amp;quot;^15.1.0&amp;quot;,
+    &amp;quot;react-hot-loader&amp;quot;: &amp;quot;^1.3.0&amp;quot;,
+    &amp;quot;react-placeholder&amp;quot;: &amp;quot;0.0.1&amp;quot;,
+    &amp;quot;resolve-url-loader&amp;quot;: &amp;quot;^1.6.0&amp;quot;,
+    &amp;quot;sass-loader&amp;quot;: &amp;quot;^4.0.2&amp;quot;,
+    &amp;quot;style-loader&amp;quot;: &amp;quot;^0.13.1&amp;quot;,
+    &amp;quot;url-loader&amp;quot;: &amp;quot;^0.5.7&amp;quot;,
+    &amp;quot;webpack&amp;quot;: &amp;quot;^1.13.1&amp;quot;,
+    &amp;quot;webpack-bundle-tracker&amp;quot;: &amp;quot;0.0.93&amp;quot;,
+    &amp;quot;webpack-dev-server&amp;quot;: &amp;quot;^1.16.2&amp;quot;
+  },
+  &amp;quot;dependencies&amp;quot;: {
+    &amp;quot;react-bootstrap&amp;quot;: &amp;quot;^0.29.5&amp;quot;
+  }
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;then run:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;npm install
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;h2&gt;Install Django and webpack for Django&lt;/h2&gt;
+&lt;p&gt;Run:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install django django-webpack-loader
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Everything we need is now installed....  it is time to get our hands dirty.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;To be Continued&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;</summary><category term="setup"></category><category term="howto"></category><category term="django"></category><category term="webpack"></category><category term="npm"></category><category term="reactjs"></category><category term="project"></category></entry><entry><title>Funny how the world turns</title><link href="https://azuer88.github.io/myblog/funny-how-the-world-turns.html" rel="alternate"></link><published>2016-10-14T08:24:54+08:00</published><updated>2016-10-14T08:24:54+08:00</updated><author><name>Blue Cuenca</name></author><id>tag:azuer88.github.io,2016-10-14:myblog/funny-how-the-world-turns.html</id><summary type="html">&lt;p&gt;Funny how the world turns.  It turns and turns.  It doesn't care if it brings you up or down.  It turns and turns.  It doesn't care if it uplifts or crushes you.   Still it turns and turns.  Won't matter what you want, what you desperately need.  It turns and turns.&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;p&gt;You can't make it stop.  You can't get off.  You can't do anything but ride it out.&lt;/p&gt;
+&lt;p&gt;So why is it funny?  &lt;/p&gt;
+&lt;p&gt;Funny how most everyone is asleep.  Funny how they are unable to see beyond the dream they are living in.  Funny how they pity.  Funny how they spend their life in their dream.  Oh, how happily do they march to the tune of their own lullaby.  &lt;/p&gt;
+&lt;p&gt;Is ignorance bliss?  &lt;/p&gt;
+&lt;p&gt;Sometimes, I wish I was ignorant, but only for that single eye blink.  I can never be a sheep.  I can not live in a box, no matter how pretty it is painted.  &lt;/p&gt;
+&lt;p&gt;Are you awake? &lt;/p&gt;
+&lt;p&gt;It is funny and tragic, isn't it?  How the world turns.&lt;/p&gt;</summary><category term="rants"></category></entry><entry><title>How to rename all files to lowercase</title><link href="https://azuer88.github.io/myblog/how-to-rename-all-files-to-lowercase.html" rel="alternate"></link><published>2016-10-12T09:14:24+08:00</published><updated>2016-10-12T09:14:24+08:00</updated><author><name>Blue Cuenca</name></author><id>tag:azuer88.github.io,2016-10-12:myblog/how-to-rename-all-files-to-lowercase.html</id><summary type="html">&lt;p&gt;How do you rename all files in the current directory to all lowercase?&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ls | while read upName; do loName=`echo "${upName}" | tr '[:upper:]' '[:lower:]'`; mv "$upName" "$loName"; done&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;I had to rename all the font files to lowercase.  I found this solution &lt;a href="https://ubuntuforums.org/showthread.php?t=1336909"&gt;here&lt;/a&gt;&lt;/p&gt;</summary><category term="terminal"></category><category term="howto"></category><category term="rename"></category></entry><entry><title>My Guide for Wiring My Bike</title><link href="https://azuer88.github.io/myblog/my-guide-for-wiring-my-bike.html" rel="alternate"></link><published>2016-09-27T16:29:45+08:00</published><updated>2016-09-27T16:29:45+08:00</updated><author><name>Blue Cuenca</name></author><id>tag:azuer88.github.io,2016-09-27:myblog/my-guide-for-wiring-my-bike.html</id><summary type="html">&lt;p&gt;I have been planning to rewire my motorcycle.  This is the wiring diagram I have come up with to help me remember which is connected to which.&lt;/p&gt;
+&lt;p&gt;&lt;img alt="My Wiring diagram" src="/images/motorcycle-wiring.png" /&gt;&lt;/p&gt;</summary><category term="motorcycle"></category><category term="wiring"></category><category term="guide"></category></entry><entry><title>Solved: Firefox hangs when clicking on 'Open containing folder'</title><link href="https://azuer88.github.io/myblog/solved-firefox-hangs-when-clicking-on-open-containing-folder.html" rel="alternate"></link><published>2016-09-27T13:33:34+08:00</published><updated>2016-09-27T13:33:34+08:00</updated><author><name>Blue Cuenca</name></author><id>tag:azuer88.github.io,2016-09-27:myblog/solved-firefox-hangs-when-clicking-on-open-containing-folder.html</id><summary type="html">&lt;p&gt;I have added and removed several file managers on my Linux Mint.  After a while I noticed that when I click on Firefox's "Open containing folder" in downloads, Firefox hangs.&lt;/p&gt;
+&lt;!--more--&gt;
+
+&lt;p&gt;Actually, Firefox doesn't really hangs, as it will eventually receive the timeout from its request to open the (presumably) dead filemanager binary.&lt;/p&gt;
+&lt;p&gt;I finally found how to solve it.  I ran &lt;code&gt;xdg-mime default pcmanfm.desktop inode/directory&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;After that, Firefox no longer "hangs".&lt;/p&gt;</summary><category term="fixes"></category><category term="firefox"></category><category term="hangs"></category></entry><entry><title>Setting up apt-cacher-ng</title><link href="https://azuer88.github.io/myblog/Setting-up-apt-proxy.html" rel="alternate"></link><published>2016-09-16T14:51:29+08:00</published><updated>2016-09-16T14:51:29+08:00</updated><author><name>Blue Cuenca</name></author><id>tag:azuer88.github.io,2016-09-16:myblog/Setting-up-apt-proxy.html</id><summary type="html">&lt;p&gt;apt-cacher-ng needs to be told how to handle traffic using HTTPS.&lt;/p&gt;
+&lt;p&gt;For most repository sources, this isn't a problem.  For some, like nodesource.com, it can cause the cacher/proxy to choke.&lt;/p&gt;
+&lt;p&gt;I added this line to &lt;code&gt;acng.conf&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;PassThroughPattern&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;deb&lt;/span&gt;&lt;span class="o"&gt;\.&lt;/span&gt;&lt;span class="n"&gt;nodesource&lt;/span&gt;&lt;span class="o"&gt;\.&lt;/span&gt;&lt;span class="n"&gt;com&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;to enable the nodesource source.&lt;/p&gt;</summary><category term="apt-cacher-ng"></category><category term="config"></category><category term="howto"></category></entry><entry><title>Yehey! We are up!</title><link href="https://azuer88.github.io/myblog/Yey-we-are-up.html" rel="alternate"></link><published>2016-09-11T12:04:48+08:00</published><updated>2016-09-11T12:04:48+08:00</updated><author><name>Blue Cuenca</name></author><id>tag:azuer88.github.io,2016-09-11:myblog/Yey-we-are-up.html</id><summary type="html">&lt;p&gt;I am trying out Github Pages.  &lt;/p&gt;
+&lt;p&gt;I will most likely use this for my blog and update as often as I can.&lt;/p&gt;
+&lt;p&gt;As I am still learning how to use Jekyll, I'll just use the defaults for now.  I'll play with the bells and whistles as I move along.&lt;/p&gt;
+&lt;p&gt;I like the powerful support for code snippets.  So, I'll probably post a lot of my snippets here; and probably config settings that I am liable to forget.&lt;/p&gt;</summary><category term="status"></category><category term="update"></category></entry></feed>
