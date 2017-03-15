@@ -11,7 +11,7 @@ Summary: Design a circuit contaning an array of buttons connected to a single ar
 <!-- start here -->
 
 
-I found [this arduino library][1] that process buttons connected to a single analog pin.
+I found [this arduino library][1] that processes buttons connected to a single analog pin.
 
 
 I designed a circuit that balances the interval for the values of the resistor ladder.  I hope that it would be easier to specify the values.  Instead, of reading the values, I would just specify the nominal values of 0 to 1023, with intervals of 102.
