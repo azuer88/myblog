@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>azuer88</title>
+    <title>Designing a button array for Arduino - azuer88</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -9,15 +9,23 @@
 
 
 
-<link rel="canonical" href=".">
-        <meta name="author" content="Blue Cuenca" />
+<link rel="canonical" href="./designing-a-button-array-for-arduino.html">
 
-    <!-- Open Graph tags -->
+        <meta name="author" content="Blue Cuenca" />
+        <meta name="keywords" content="arduino,buttons,circuit" />
+        <meta name="description" content="Design a circuit contaning an array of buttons connected to a single arduino pin" />
+
         <meta property="og:site_name" content="azuer88" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="azuer88"/>
-        <meta property="og:url" content="."/>
-        <meta property="og:description" content="azuer88"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Designing a button array for Arduino"/>
+        <meta property="og:url" content="./designing-a-button-array-for-arduino.html"/>
+        <meta property="og:description" content="Design a circuit contaning an array of buttons connected to a single arduino pin"/>
+        <meta property="article:published_time" content="2017-03-15" />
+            <meta property="article:section" content="Hardware" />
+            <meta property="article:tag" content="arduino" />
+            <meta property="article:tag" content="buttons" />
+            <meta property="article:tag" content="circuit" />
+            <meta property="article:author" content="Blue Cuenca" />
 
 
     <!-- Bootstrap -->
@@ -32,6 +40,8 @@
 
 
 
+        <link href="./feeds/hardware.atom.xml" type="application/atom+xml" rel="alternate"
+              title="azuer88 Hardware ATOM Feed"/>
 
 </head>
 <body>
@@ -53,7 +63,7 @@ azuer88            </a>
                         <li >
                             <a href="./category/guide.html">Guide</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="./category/hardware.html">Hardware</a>
                         </li>
                         <li >
@@ -80,44 +90,50 @@ azuer88            </a>
 <div class="container">
     <div class="row">
         <div class="col-sm-9">
-            <article>
-                <h2><a href="./my-guide-for-wiring-my-bike.html">My Guide for Wiring My Bike</a></h2>
-                <div class="summary"><p>My motorcycle wiring guide</p>
-                    <a class="btn btn-default btn-xs" href="./my-guide-for-wiring-my-bike.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./solved-firefox-hangs-when-clicking-on-open-containing-folder.html">Solved: Firefox hangs when clicking on 'Open containing folder'</a></h2>
-                <div class="summary"><p>Fixing Firefox hang on open containing folder</p>
-                    <a class="btn btn-default btn-xs" href="./solved-firefox-hangs-when-clicking-on-open-containing-folder.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./Setting-up-apt-proxy.html">Setting up apt-cacher-ng</a></h2>
-                <div class="summary"><p>How to setup apt-cache-ng to handle https traffic</p>
-                    <a class="btn btn-default btn-xs" href="./Setting-up-apt-proxy.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="./Yey-we-are-up.html">Yehey! We are up!</a></h2>
-                <div class="summary"><p>Trying out Github Pages</p>
-                    <a class="btn btn-default btn-xs" href="./Yey-we-are-up.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./designing-a-button-array-for-arduino.html"
+                       rel="bookmark"
+                       title="Permalink to Designing a button array for Arduino">
+                        Designing a button array for Arduino
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-03-15T10:37:08+08:00"> Wed 15 March 2017</time>
+    </span>
 
-        <ul class="pagination">
-                <li class="prev"><a href="./index.html">&laquo;</a>
-                </li>
-                    <li class=""><a
-                            href="./index.html">1</a></li>
-                    <li class="active"><a
-                            href="./index2.html">2</a></li>
-                <li class="next disabled"><a href="#">&raquo;</a></li>
-        </ul>
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/arduino.html">arduino</a>
+        /
+	<a href="./tag/buttons.html">buttons</a>
+        /
+	<a href="./tag/circuit.html">circuit</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <!-- start here -->
+
+<p>I found <a href="https://github.com/dxinteractive/AnalogMultiButton">this arduino library</a> that process buttons connected to a single analog pin.</p>
+<p>I designed a circuit that balances the interval for the values of the resistor ladder.  I hope that it would be easier to specify the values.  Instead, of reading the values, I would just specify the nominal values of 0 to 1023, with intervals of 102.</p>
+<p>I have not tested the circuit yet, but it looks like this:</p>
+<p><img alt="buttons_array" src="./images/MultiButtonsDesign-med.png" /></p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>

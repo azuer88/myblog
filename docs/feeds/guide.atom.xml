@@ -1,7 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>azuer88</title><link href="https://azuer88.github.io/myblog/" rel="alternate"></link><link href="https://azuer88.github.io/myblog/feeds/guide.atom.xml" rel="self"></link><id>https://azuer88.github.io/myblog/</id><updated>2017-02-16T14:19:07+08:00</updated><entry><title>Setup a Django Project with WebPack-ReactJS-NPM Front-End Framework Part 2</title><link href="https://azuer88.github.io/myblog/setup-a-django-project-with-webpack-reactjs-npm-frontend-framework-part-2.html" rel="alternate"></link><published>2017-02-16T14:19:07+08:00</published><updated>2017-02-16T14:19:07+08:00</updated><author><name>Blue Cuenca</name></author><id>tag:azuer88.github.io,2017-02-16:myblog/setup-a-django-project-with-webpack-reactjs-npm-frontend-framework-part-2.html</id><summary type="html">&lt;!-- start here --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>azuer88</title><link href="https://azuer88.github.io/myblog/" rel="alternate"></link><link href="https://azuer88.github.io/myblog/feeds/guide.atom.xml" rel="self"></link><id>https://azuer88.github.io/myblog/</id><updated>2017-03-15T09:05:00+08:00</updated><entry><title>Setup a Django Project with WebPack-ReactJS-NPM Front-End Framework Part 2</title><link href="https://azuer88.github.io/myblog/setup-a-django-project-with-webpack-reactjs-npm-frontend-framework-part-2.html" rel="alternate"></link><published>2017-03-15T09:05:00+08:00</published><updated>2017-03-15T09:05:00+08:00</updated><author><name>Blue Cuenca</name></author><id>tag:azuer88.github.io,2017-02-16:myblog/setup-a-django-project-with-webpack-reactjs-npm-frontend-framework-part-2.html</id><summary type="html">&lt;!-- start here --&gt;
 
-&lt;p&gt;In this post, we are going to continue with setting up the environment we created in &lt;a href="https://azuer88.github.io/myblog/setup-a-django-project-with-webpack-reactjs-npm-frontend-framework.html"&gt;this post&lt;/a&gt;&lt;/p&gt;</summary><category term="setup"></category><category term="howto"></category><category term="django"></category><category term="webpack"></category><category term="reactjs"></category><category term="npm"></category><category term="project"></category></entry><entry><title>Setup a django project with webpack+reactjs+npm frontend framework</title><link href="https://azuer88.github.io/myblog/setup-a-django-project-with-webpack-reactjs-npm-frontend-framework.html" rel="alternate"></link><published>2017-02-15T15:22:41+08:00</published><updated>2017-02-15T15:22:41+08:00</updated><author><name>Blue Cuenca</name></author><id>tag:azuer88.github.io,2017-02-15:myblog/setup-a-django-project-with-webpack-reactjs-npm-frontend-framework.html</id><summary type="html">&lt;!-- start here --&gt;
+&lt;p&gt;In this post, we are going to continue with setting up the environment we created in &lt;a href="https://azuer88.github.io/myblog/setup-a-django-project-with-webpack-reactjs-npm-frontend-framework.html"&gt;this post&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;Setup Django project&lt;/h1&gt;
+&lt;p&gt;Setup a django project, usually done with &lt;code&gt;django-admin startproject &amp;lt;project_name&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;We need to add a few things to the &lt;em&gt;settings.py&lt;/em&gt; of our new django project.&lt;/p&gt;
+&lt;p&gt;First we'll add some path constants.  so add the following after the &lt;em&gt;BASE_DIR&lt;/em&gt; assignment:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;# Build paths for webpack and for static settings
+DJANGO_DIR = os.path.dirname(os.path.abspath(__FILE__))
+PROJECT_NAME = os.path.basename(DJANGO_DIR)
+# I usually have django inside src/ so, root is 3 levels from this file
+PROJECT_ROOT = os.path.normpath(os.path.join(DJANGO_DIR, &amp;quot;../../../&amp;quot;))
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Next, we'll add the &lt;code&gt;webpack_loader&lt;/code&gt; app into the &lt;code&gt;INSTALLED_APPS&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;INSTALLED_APPS = [
+      ...
+
+      `webpack_loader&amp;#39;,
+]
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Now, we'll setup the configuration for webpack loader...&lt;/p&gt;
+&lt;p&gt;Append the following to (last part of) settings.py&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;ASSETS_ROOT = os.path.join(PROJECT_ROOT, &amp;#39;src&amp;#39;, &amp;#39;assets&amp;#39;)
+BUNDLES_DIR = os.path.join(ASSETS_ROOT, &amp;#39;bundles&amp;#39;, &amp;#39;&amp;#39;)  # must end with /
+WEBPACK_LOADER = {
+    &amp;#39;DEFAULT&amp;#39;: {
+        CACHE: not DEBUG,
+        &amp;#39;BUNDLE_DIR_NAME&amp;#39;: BUNDLES_DIR,
+        &amp;#39;STATS_FILE&amp;#39;: os.path.join(PROJECT_ROOT, &amp;#39;webpack-stats.json&amp;#39;),
+        &amp;#39;POLL_INTERVAL&amp;#39;: 0.1,
+        &amp;#39;IGNORE&amp;#39;: [.+\.hot-upate.js&amp;#39;, \.+\.map&amp;#39;],
+    }
+}
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Finally, (for the settings.py, at least) we'll change some of the above settings if debug is not enabled (production settings):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;if not DEBUG:
+   BUNDLES_DIR = os.path.join(PROJECT_ROOT, &amp;#39;src&amp;#39;, static&amp;#39;, &amp;#39;bundles&amp;#39;, &amp;#39;&amp;#39;)
+   WEBPACK_LOADER[&amp;#39;DEFAULT&amp;#39;].update(
+      {
+        &amp;#39;BUNDLE_DIR_NAME&amp;#39;: BUNDLES_DIR,
+        &amp;#39;STATS_FILE&amp;#39;: os.path.join(PROJECT_ROOT, &amp;#39;webpack-stats-prod.json&amp;#39;),
+      }
+   )
+&lt;/pre&gt;&lt;/div&gt;</summary><category term="setup"></category><category term="howto"></category><category term="django"></category><category term="webpack"></category><category term="reactjs"></category><category term="npm"></category><category term="project"></category></entry><entry><title>Setup a django project with webpack+reactjs+npm frontend framework</title><link href="https://azuer88.github.io/myblog/setup-a-django-project-with-webpack-reactjs-npm-frontend-framework.html" rel="alternate"></link><published>2017-02-15T15:22:41+08:00</published><updated>2017-02-15T15:22:41+08:00</updated><author><name>Blue Cuenca</name></author><id>tag:azuer88.github.io,2017-02-15:myblog/setup-a-django-project-with-webpack-reactjs-npm-frontend-framework.html</id><summary type="html">&lt;!-- start here --&gt;
 
 &lt;p&gt;# Create project as usual...&lt;/p&gt;
 &lt;p&gt;I usually start from &lt;a href="http://www.github.com"&gt;github&lt;/a&gt;, creating a repository, then clone that repository.&lt;/p&gt;
