@@ -78,3 +78,5 @@ target/
 pelican.pid
 srv.pid
 
+# Atom workspace folder
+.ropeproject
