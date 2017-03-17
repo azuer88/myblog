@@ -72,7 +72,7 @@ def get_post_header(cargs):
 
 
 def get_filename(title):
-    return slugify(title)
+    return "%s.md" % slugify(title)
 
 
 def main():
