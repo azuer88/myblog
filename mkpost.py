@@ -72,10 +72,7 @@ def get_post_header(cargs):
 
 
 def get_filename(title):
-    fmt = "%Y-%m-%d"
-    ds = datetime.today().strftime(fmt)
-    slug = slugify(title)
-    return "%s-%s.md" % (ds, slug)
+    return slugify(title)
 
 
 def main():
