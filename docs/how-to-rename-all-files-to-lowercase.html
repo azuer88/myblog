@@ -121,7 +121,10 @@ azuer88            </a>
         /
 	<a href="./tag/rename.html">rename</a>
     
-</footer><!-- /.post-info -->                    </div>
+</footer><!-- /.post-info -->                        <a href="#disqus_thread" 
+                           data-disqus-identifier="how-to-rename-all-files-to-lowercase">
+                        </a>
+                    </div>
                 </div>
                 <p>How do you rename all files in the current directory to all lowercase?</p>
 <p><code>ls | while read upName; do loName=`echo "${upName}" | tr '[:upper:]' '[:lower:]'`; mv "$upName" "$loName"; done</code></p>
