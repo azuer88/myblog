@@ -205,5 +205,8 @@
 {% include 'includes/piwik.html' %}
 
 {% block scripts %}{% endblock %}
+{% if DISCUS_SITENAME %}
+<script id="dsq-count-scr" src="//azuer88.disqus.com/count.js" async></script>
+{% endif %}
 </body>
 </html>
