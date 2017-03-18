@@ -83,6 +83,9 @@
                 <div class="panel">
                     <div class="panel-body">
                         {% include "includes/article_info.html" %}
+                        <a href="#disqus_thread" 
+                           data-disqus-identifier="{{ article.slug }}">
+                        </a>
                     </div>
                 </div>
                 {{ article.content }}
