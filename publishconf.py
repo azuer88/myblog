@@ -21,4 +21,5 @@ DELETE_OUTPUT_DIRECTORY = True
 # Following items are often useful when publishing
 
 DISQUS_SITENAME = "azuer88"
+DISQUS_DISPLAY_COUNTS = True
 #GOOGLE_ANALYTICS = ""
