@@ -6,12 +6,12 @@
         <div id="disqus_thread"></div>
         <script type="text/javascript">
             var discus_config = function() {
-                this.page.url = {{ SITEURL }};
-                this.page.identifier = '';
+                this.page.url = '{{ SITEURL }}/{{ article.url }}';
+                this.page.identifier = '{{ article.slug }}';
             };
         (function() { // DON'T EDIT BELOW THIS LINE
             var d = document, s = d.createElement('script');
-            s.src = 'https://{{ DISQUS_SITENAME}}.disqus.com/embed.js';
+            s.src = 'https://{{ DISQUS_SITENAME }}.disqus.com/embed.js';
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
             })();
