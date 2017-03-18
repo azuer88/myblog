@@ -1,10 +1,11 @@
-#/usr/bin/env python
+#!/usr/bin/env python
 # -*- coding: utf-8 -*- #
 from __future__ import unicode_literals
 
 AUTHOR = u'Blue Cuenca'
 SITENAME = u'azuer88'
 SITEURL = 'https://azuer88.github.io/myblog'
+# GITHUB_USER = 'azuer88'
 
 PATH = 'content'
 
@@ -20,13 +21,16 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (('Pelican', 'http://getpelican.com/'),
+LINKS = (
+         ('Pelican', 'http://getpelican.com/'),
          ('Python.org', 'http://python.org/'),
          ('Jinja2', 'http://jinja.pocoo.org/'),
         )
 
 # Social widget
-SOCIAL = (('Twitter', 'http://twitter.com/azuer88/'),
+SOCIAL = (
+          ('Twitter', 'http://twitter.com/azuer88/'),
+          ('Google+', 'https://plus.google.com/+BlueCuenca'),
          )
 
 DEFAULT_PAGINATION = 5
@@ -34,4 +38,4 @@ DEFAULT_PAGINATION = 5
 # Uncomment following line if you want document-relative URLs when developing
 RELATIVE_URLS = False
 
-THEME="./themes/pelican-bootstrap3"
+THEME = "./themes/pelican-bootstrap3"
