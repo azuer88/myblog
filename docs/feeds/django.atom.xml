@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>azuer88</title><link href="https://azuer88.github.io/myblog/" rel="alternate"></link><link href="https://azuer88.github.io/myblog/feeds/django.atom.xml" rel="self"></link><id>https://azuer88.github.io/myblog/</id><updated>2017-07-05T13:33:45+08:00</updated><entry><title>Setting up fileshackproject on CentOS 6</title><link href="https://azuer88.github.io/myblog/setting-up-fileshackproject-on-centos-6.html" rel="alternate"></link><published>2017-07-05T13:33:45+08:00</published><updated>2017-07-05T13:33:45+08:00</updated><author><name>Blue Cuenca</name></author><id>tag:azuer88.github.io,2017-07-05:myblog/setting-up-fileshackproject-on-centos-6.html</id><summary type="html">&lt;!-- start here --&gt;
+
+&lt;p&gt;&lt;strong&gt;NB: This will install global django, DOES NOT use virtualenv.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Install the necessary packages:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum install mod_wsgi 
+yum install python-pip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Install the correct version of django (v1.4.22)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install django\&amp;lt;1.5
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(I haven't tested this with any other version of django)&lt;/p&gt;</summary><category term="filedrop"></category><category term="centos"></category><category term="apache"></category><category term="configure"></category><category term="setup"></category></entry></feed>

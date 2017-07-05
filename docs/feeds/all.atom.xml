@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>azuer88</title><link href="https://azuer88.github.io/myblog/" rel="alternate"></link><link href="https://azuer88.github.io/myblog/feeds/all.atom.xml" rel="self"></link><id>https://azuer88.github.io/myblog/</id><updated>2017-03-17T15:44:32+08:00</updated><entry><title>Dual Power Supply for Arduino Nano and nRF24L01+ Module</title><link href="https://azuer88.github.io/myblog/dual-power-supply-for-arduino-nano-and-nrf24l01-module.html" rel="alternate"></link><published>2017-03-17T15:44:32+08:00</published><updated>2017-03-17T15:44:32+08:00</updated><author><name>Blue Cuenca</name></author><id>tag:azuer88.github.io,2017-03-17:myblog/dual-power-supply-for-arduino-nano-and-nrf24l01-module.html</id><summary type="html">&lt;p&gt;This is my version of a dual power supply for arduino and the nRF24L01+ transceiver module.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>azuer88</title><link href="https://azuer88.github.io/myblog/" rel="alternate"></link><link href="https://azuer88.github.io/myblog/feeds/all.atom.xml" rel="self"></link><id>https://azuer88.github.io/myblog/</id><updated>2017-07-05T13:33:45+08:00</updated><entry><title>Setting up fileshackproject on CentOS 6</title><link href="https://azuer88.github.io/myblog/setting-up-fileshackproject-on-centos-6.html" rel="alternate"></link><published>2017-07-05T13:33:45+08:00</published><updated>2017-07-05T13:33:45+08:00</updated><author><name>Blue Cuenca</name></author><id>tag:azuer88.github.io,2017-07-05:myblog/setting-up-fileshackproject-on-centos-6.html</id><summary type="html">&lt;!-- start here --&gt;
+
+&lt;p&gt;&lt;strong&gt;NB: This will install global django, DOES NOT use virtualenv.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Install the necessary packages:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum install mod_wsgi 
+yum install python-pip
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Install the correct version of django (v1.4.22)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;pip install django\&amp;lt;1.5
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(I haven't tested this with any other version of django)&lt;/p&gt;</summary><category term="filedrop"></category><category term="centos"></category><category term="apache"></category><category term="configure"></category><category term="setup"></category></entry><entry><title>Dual Power Supply for Arduino Nano and nRF24L01+ Module</title><link href="https://azuer88.github.io/myblog/dual-power-supply-for-arduino-nano-and-nrf24l01-module.html" rel="alternate"></link><published>2017-03-17T15:44:32+08:00</published><updated>2017-03-17T15:44:32+08:00</updated><author><name>Blue Cuenca</name></author><id>tag:azuer88.github.io,2017-03-17:myblog/dual-power-supply-for-arduino-nano-and-nrf24l01-module.html</id><summary type="html">&lt;p&gt;This is my version of a dual power supply for arduino and the nRF24L01+ transceiver module.&lt;/p&gt;
 &lt;p&gt;I have read that the nRF24L01 transceiver module may behave erratically if its power supply (3.3V) is not stable.  I also have a base module for it, but I plan to only use the base module during the initial testing.&lt;/p&gt;
 &lt;p&gt;If and when I use these transceiver, I would prefer minimize the number of components.  &lt;/p&gt;
 &lt;p&gt;Hopefully, I can fabricate the PCB these following nights.  &lt;/p&gt;
