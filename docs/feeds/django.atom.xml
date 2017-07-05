@@ -5,6 +5,7 @@
 &lt;p&gt;Install the necessary packages:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;yum install mod_wsgi 
 yum install python-pip
+yum install git
 &lt;/pre&gt;&lt;/div&gt;
 
 
@@ -13,4 +14,48 @@ yum install python-pip
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;(I haven't tested this with any other version of django)&lt;/p&gt;</summary><category term="filedrop"></category><category term="centos"></category><category term="apache"></category><category term="configure"></category><category term="setup"></category></entry></feed>
+&lt;p&gt;(I haven't tested this with any other version of django)&lt;/p&gt;
+&lt;p&gt;Create project directory (and change into)&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;mkdir /opt/www/django/
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Download project from github&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;git git://github.com/peterkuma/fileshackproject.git 
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Change owner of all these files to apache&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;chown -R apache:apache /opt/www
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Create the apache configuration file (in /etc/httpd/conf.d/fileshack.conf) with the following content:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;WSGIScriptAlias / /opt/www/django/fileshackproject/fileshackproject/wsgi.py
+WSGIPythonPath /opt/wwww/django/fileshackproject
+
+Alias /static/ /opt/www/django/fileshackproject/static/
+Alias /media/ /opt/www/django/fileshackproject/media/
+
+&lt;span class="nt"&gt;&amp;lt;Directory&lt;/span&gt; &lt;span class="err"&gt;/opt/www/django/fileshackproject&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    &lt;span class="nt"&gt;&amp;lt;Files&lt;/span&gt; &lt;span class="err"&gt;wsgi.py&lt;/span&gt;&lt;span class="nt"&gt;&amp;gt;&lt;/span&gt;
+    Order deny,allow
+        Allow from all
+    &lt;span class="nt"&gt;&amp;lt;/Files&amp;gt;&lt;/span&gt;
+&lt;span class="nt"&gt;&amp;lt;/Directory&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;(Optional) update SELinux Permissions&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;setsebool -P httpd_can_network_connect 1
+chcon -R -t httpd_sys_content_t /opt/www/django
+chcon -R -t httpd_sys_content_rw_t /opt/www/django
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;Restart apache&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;apachectl -k restart
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;And we are done!&lt;/p&gt;</summary><category term="filedrop"></category><category term="centos"></category><category term="apache"></category><category term="configure"></category><category term="setup"></category></entry></feed>

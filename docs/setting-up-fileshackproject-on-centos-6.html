@@ -141,6 +141,7 @@ azuer88            </a>
 <p>Install the necessary packages:</p>
 <div class="highlight"><pre><span></span>yum install mod_wsgi 
 yum install python-pip
+yum install git
 </pre></div>
 
 
@@ -150,6 +151,50 @@ yum install python-pip
 
 
 <p>(I haven't tested this with any other version of django)</p>
+<p>Create project directory (and change into)</p>
+<div class="highlight"><pre><span></span>mkdir /opt/www/django/
+</pre></div>
+
+
+<p>Download project from github</p>
+<div class="highlight"><pre><span></span>git git://github.com/peterkuma/fileshackproject.git 
+</pre></div>
+
+
+<p>Change owner of all these files to apache</p>
+<div class="highlight"><pre><span></span>chown -R apache:apache /opt/www
+</pre></div>
+
+
+<p>Create the apache configuration file (in /etc/httpd/conf.d/fileshack.conf) with the following content:</p>
+<div class="highlight"><pre><span></span>WSGIScriptAlias / /opt/www/django/fileshackproject/fileshackproject/wsgi.py
+WSGIPythonPath /opt/wwww/django/fileshackproject
+
+Alias /static/ /opt/www/django/fileshackproject/static/
+Alias /media/ /opt/www/django/fileshackproject/media/
+
+<span class="nt">&lt;Directory</span> <span class="err">/opt/www/django/fileshackproject</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;Files</span> <span class="err">wsgi.py</span><span class="nt">&gt;</span>
+    Order deny,allow
+        Allow from all
+    <span class="nt">&lt;/Files&gt;</span>
+<span class="nt">&lt;/Directory&gt;</span>
+</pre></div>
+
+
+<p>(Optional) update SELinux Permissions</p>
+<div class="highlight"><pre><span></span>setsebool -P httpd_can_network_connect 1
+chcon -R -t httpd_sys_content_t /opt/www/django
+chcon -R -t httpd_sys_content_rw_t /opt/www/django
+</pre></div>
+
+
+<p>Restart apache</p>
+<div class="highlight"><pre><span></span>apachectl -k restart
+</pre></div>
+
+
+<p>And we are done!</p>
             </div>
             <!-- /.entry-content -->
     <hr/>
