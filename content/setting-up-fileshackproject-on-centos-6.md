@@ -2,7 +2,7 @@ Title: Setting up fileshackproject on CentOS 6
 Date: 2017-07-05 13:33:45 PHT+0800
 Category: django
 Slug: setting-up-fileshackproject-on-centos-6
-Tags: filedrop,centos,apache,configure,setup
+Tags: filedrop,centos,apache,configure,setup,mod_wsgi
 Authors: Blue Cuenca
 Summary: Setting the django app fileshackproject on CentOS 6 running apache 2.2
 

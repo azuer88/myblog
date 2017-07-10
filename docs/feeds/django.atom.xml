@@ -58,4 +58,6 @@ chcon -R -t httpd_sys_content_rw_t /opt/www/django
 &lt;/pre&gt;&lt;/div&gt;
 
 
+&lt;p&gt;(Optional) lastly, update Apache config, for large files&lt;/p&gt;
+&lt;p&gt;The &lt;code&gt;LimitRequestBody&lt;/code&gt; directive specifies the number of bytes the server will allow in a request body.  Change to 0 for unlimited. &lt;/p&gt;
 &lt;p&gt;And we are done!&lt;/p&gt;</summary><category term="filedrop"></category><category term="centos"></category><category term="apache"></category><category term="configure"></category><category term="setup"></category><category term="mod_wsgi"></category></entry></feed>

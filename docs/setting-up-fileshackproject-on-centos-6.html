@@ -197,6 +197,8 @@ chcon -R -t httpd_sys_content_rw_t /opt/www/django
 </pre></div>
 
 
+<p>(Optional) lastly, update Apache config, for large files</p>
+<p>The <code>LimitRequestBody</code> directive specifies the number of bytes the server will allow in a request body.  Change to 0 for unlimited. </p>
 <p>And we are done!</p>
             </div>
             <!-- /.entry-content -->
